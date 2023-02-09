@@ -5,15 +5,15 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.subsystems.TurretSubsystemAlt2;
+import frc.robot.subsystems.TurretSubsystem;
 import static frc.robot.RobotContainer.m_joystick;
 import static frc.robot.Constants.Turret.*;
 
 public class DefaultTurret extends CommandBase {
-  TurretSubsystemAlt2 m_turretSubsystem;
+  TurretSubsystem m_turretSubsystem;
 
   /** Creates a new DefaultTurret. */
-  public DefaultTurret(TurretSubsystemAlt2 subsystem) {
+  public DefaultTurret(TurretSubsystem subsystem) {
     m_turretSubsystem = subsystem;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(subsystem);
@@ -26,8 +26,10 @@ public class DefaultTurret extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    m_turretSubsystem.setSetpoint(
-        m_turretSubsystem.getSetpoint() + MANUAL_ROTATE_SCALE * m_joystick.getTwist());
+    double setpoint = m_turretSubsystem.getSetpoint() + MANUAL_ROTATE_SCALE * m_joystick.getTwist();
+    if (HARD_MIN_ANGLE < setpoint && setpoint < HARD_MAX_ANGLE) {
+      m_turretSubsystem.setSetpoint(setpoint);
+    }
   }
 
   // Called once the command ends or is interrupted.

@@ -6,14 +6,21 @@ import edu.wpi.first.math.geometry.Translation3d;
 
 public final class Constants {
     public static class Turret {
-        public static final double MANUAL_ROTATE_SCALE = 0.0001;
-        public static final double GEAR_RATIO = 37.2; // Possibly subject to change
+        public static final int TURRET_ID = 1;
+        public static final int LEFT_SWITCH_PORT = 1;
+        public static final int RIGHT_SWITCH_PORT = 2;
+        public static final double GEAR_RATIO = 37.2;
 
         public static final double SOFT_MIN_ANGLE = -GEAR_RATIO * 110 / 360; // Not sure of what the angle is
         public static final double SOFT_MAX_ANGLE = GEAR_RATIO * 110 / 360;
         public static final double HARD_MIN_ANGLE = -GEAR_RATIO * 130 / 360;
         public static final double HARD_MAX_ANGLE = GEAR_RATIO * 130 / 360;
+        public static final double LEFT_RUMBLE_ANGLE = -GEAR_RATIO * 120/360;
+        public static final double RIGHT_RUMBLE_ANGLE = GEAR_RATIO * 120/360;
+        public static final double LEFT_SWITCH_ANGLE = -GEAR_RATIO * 130/360;
+        public static final double RIGHT_SWITCH_ANGLE = GEAR_RATIO * 130/360;
 
+        public static final double MANUAL_ROTATE_SCALE = 0.0001;
         public static final double P = 0;
         public static final double I = 0;
         public static final double D = 0;

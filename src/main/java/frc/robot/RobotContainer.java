@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.DefaultTurret;
 import frc.robot.subsystems.DriveSubsystem;
-import frc.robot.subsystems.TurretSubsystemAlt2;
+import frc.robot.subsystems.TurretSubsystem;
 import frc.robot.subsystems.VisionSubsystem;
 
 public class RobotContainer {
@@ -19,7 +19,7 @@ public class RobotContainer {
 
   DriveSubsystem m_driveSubsystem = new DriveSubsystem();
   VisionSubsystem m_visionSubsystem = new VisionSubsystem();
-  TurretSubsystemAlt2 m_turretSubsystem = new TurretSubsystemAlt2();
+  TurretSubsystem m_turretSubsystem = new TurretSubsystem();
 
   Command m_defaultTurret = new DefaultTurret(m_turretSubsystem);
 

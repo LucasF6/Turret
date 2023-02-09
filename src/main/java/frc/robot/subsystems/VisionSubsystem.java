@@ -59,6 +59,7 @@ public class VisionSubsystem extends SubsystemBase {
     return getCameraPose().transformBy(CAMERA_TO_TURRET);
   }
 
+  /** Calculate the number of rotations required to look at the cube node */
   public double calculateCube() {
     Pose3d turretPose = getTurretPose();
     Pose3d nodePose = getTargetPose().transformBy(TAG_TO_CUBE);
@@ -69,6 +70,7 @@ public class VisionSubsystem extends SubsystemBase {
         nodePose.getX() - turretPose.getX()));
   }
 
+  /** Calculate the number of rotations required to look at left node */
   public double calculateLeftNode() {
     Pose3d turretPose = getTurretPose();
     Pose3d nodePose = getTargetPose().transformBy(TAG_TO_LEFT_CONE_NODE);
@@ -79,6 +81,7 @@ public class VisionSubsystem extends SubsystemBase {
         nodePose.getX() - turretPose.getX()));
   }
 
+  /** Calculate the number of rotations required to look at the right node */
   public double calculateRightNode() {
     Pose3d turretPose = getTurretPose();
     Pose3d nodePose = getTargetPose().transformBy(TAG_TO_RIGHT_CONE_NODE);
